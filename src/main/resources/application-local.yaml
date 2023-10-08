@@ -1,0 +1,14 @@
+spring:
+  data:
+    mongodb:
+      host: localhost
+      port: 27017
+      database: rocketleague
+
+logging:
+  level:
+    root: INFO
+    org.springframework: INFO
+    com.rocketleague.itemmanager: DEBUG
+  pattern:
+    console: "%d{HH:mm:ss.SSS} [%thread] %-5level %logger{36} - %msg%n"
