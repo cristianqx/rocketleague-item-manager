@@ -27,8 +27,10 @@ public class ImageGatewayImpl implements ImageGateway {
 
     @Override
     public void saveLocally(byte[] bytes, String name, String pathToSave) throws IOException, PathExistingException {
+        String temp = "C:\\rocketleague-item-manager-images";
+
         try {
-            Path caminho = Paths.get(pathToSave, name);
+            Path caminho = Paths.get(temp, name);
 
             if (Files.exists(caminho)) {
                 throw new PathExistingException(format("The path and file %s already exist: ", pathToSave + name));
@@ -36,7 +38,7 @@ public class ImageGatewayImpl implements ImageGateway {
 
             Files.createDirectories(caminho.getParent());
 
-            try (FileOutputStream foto = new FileOutputStream(pathToSave)) {
+            try (FileOutputStream foto = new FileOutputStream(caminho.toString())) {
                 foto.write(bytes);
             }
 

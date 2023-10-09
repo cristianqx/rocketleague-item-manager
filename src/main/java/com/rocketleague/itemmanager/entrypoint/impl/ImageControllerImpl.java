@@ -16,7 +16,7 @@ import java.util.List;
 @RequestMapping("/api/imagem")
 public class ImageControllerImpl implements ImageController {
 
-    private static final String EXECUTION_KEY = "991599a930e960dc07956114f4429366";
+    private static final String EXECUTION_KEY = "991599a930e960dc07956114f4429366";  // TODO Jogar no config properties
     private final ImageUseCaseImpl imageUseCaseImpl;
 
     @Autowired
@@ -28,7 +28,7 @@ public class ImageControllerImpl implements ImageController {
     public ImageDTO saveImages(final String executionKey,
                                final List<ImagemVO> imagens) {
         if (!checkExecutionKey(executionKey)) {
-            throw new ForbiddenException("Chave de execução inválida");
+            throw new ForbiddenException("Chave de execução inválida"); // TODO Ajustar exceptions depois
         }
         return imageUseCaseImpl.saveImages(imagens);
     }
